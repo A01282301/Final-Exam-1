@@ -6,7 +6,7 @@ function Book( props ){
             {
                 <ul>
                     <li>
-                     {props.Book}
+                    {response.title} {response.authors}
                     </li>
                 </ul>
             }
