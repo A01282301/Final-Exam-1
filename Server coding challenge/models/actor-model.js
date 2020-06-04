@@ -28,10 +28,17 @@ const Actors = {
                 .catch( err => {
                     throw new Error( err );
                 });
+    },
+    getActorByName : function (name){
+        return moviesCollection.findOne({firstName : name}).then( actor =>{
+            if(!actor){
+                throw new Error("Movie is not found")
+            }
+            return movie
+        }).catch(err =>{
+            throw new Error(err);
+        })
     }
-    /*
-        Your code goes here
-    */
 }
 
 module.exports = {
