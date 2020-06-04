@@ -1,5 +1,6 @@
 function errorHandler(error, req, res) {
-        if(req.error)
+        
+        if(error)
             return res.status(error).end();
 }
 

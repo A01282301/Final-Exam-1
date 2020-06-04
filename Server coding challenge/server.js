@@ -10,8 +10,8 @@ const Movies = require('./models/actor-model');
 const app = express();
 app.use(errorHandler);
 
-app.patch('/api/add-movie-actor/', jsonParser,(req, res)=>{
-    
+app.patch('/api/add-movie-actor/', jsonParser, (req, res)=>{
+    console.log('patch');
     const MovieID = req.body.MovieID //We have the movie ID
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -37,7 +37,7 @@ app.patch('/api/add-movie-actor/', jsonParser,(req, res)=>{
         console.log(actor)
         Movies.getMovieId(movieID).then(movie =>{
         console.log(movie)
-
+        return res.status(201).json(movie);
         }).catch(err =>{
             res.statusMessage = "“The actor or movie do not exist”."
             return res.status(409).end();
